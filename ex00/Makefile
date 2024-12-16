@@ -6,7 +6,7 @@
 #    By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 13:42:12 by mpellegr          #+#    #+#              #
-#    Updated: 2024/12/16 13:59:00 by mpellegr         ###   ########.fr        #
+#    Updated: 2024/12/16 14:02:25 by mpellegr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(NAME): $(OBJ)
 clean:
 		$(RM) $(OBJ)
 
-flcean: clean
+fclean: clean
 		$(RM) $(NAME)
 
 re: fclean all
