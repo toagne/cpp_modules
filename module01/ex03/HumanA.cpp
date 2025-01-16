@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:46:01 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/15 19:43:09 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/16 09:52:08 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 HumanA::HumanA(std::string main_name, Weapon &main_weapon) : _name(main_name), _weapon(main_weapon) {}
 
-HumanA::~HumanA() {}
-
-void HumanA::attack() {
+void HumanA::attack() const {
 	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 }

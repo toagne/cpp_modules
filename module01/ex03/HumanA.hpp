@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:23:55 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/15 19:44:18 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/16 09:52:24 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ private:
 	Weapon &_weapon;
 public:
 	HumanA(std::string main_name, Weapon &main_weapon);
-	~HumanA();
-	void attack();
+	void attack() const ;
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:23:55 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/15 19:51:12 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/16 09:34:14 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 	Weapon *_weapon;
 public:
 	HumanB(std::string main_name);
-	void attack();
+	void attack() const;
 	void setWeapon(Weapon &main_weapon);
 };
 
