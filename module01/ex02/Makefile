@@ -6,13 +6,13 @@
 #    By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 13:42:12 by mpellegr          #+#    #+#              #
-#    Updated: 2025/01/15 15:17:25 by mpellegr         ###   ########.fr        #
+#    Updated: 2025/01/17 10:34:43 by mpellegr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
-NAME = HI THIS IS BRAIN
+NAME = HI_THIS_IS_BRAIN
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
