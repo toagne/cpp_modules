@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+         #
+#    By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/16 17:42:16 by mpellegr          #+#    #+#              #
-#    Updated: 2025/01/16 18:13:21 by mpellegr         ###   ########.fr        #
+#    Updated: 2025/01/17 10:09:05 by mpellegr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
-NAME = Harl
+NAME = harlFilter
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
