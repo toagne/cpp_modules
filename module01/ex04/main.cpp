@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 11:52:06 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/16 16:00:36 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:06:54 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(int ac, char **av) {
 	std::string first_substr;
 	std::string second_substr;
 	s1_len = s1.length();
-	while (first_char_of_s1 != std::string::npos) {
+	while (s1 != s2 && first_char_of_s1 != std::string::npos) {
 		first_substr = content.substr(0, first_char_of_s1);
 		second_substr = content.substr(first_char_of_s1 + s1_len);
 		content = first_substr + s2 + second_substr;
