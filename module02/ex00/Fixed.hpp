@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:20:31 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/21 11:26:32 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:34:09 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ private:
 	static const int _n_of_fract_bits = 8;
 public:
 	Fixed();
+	Fixed(Fixed const & src);
+	Fixed & operator=(Fixed const & rhs);
 	~Fixed();
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
