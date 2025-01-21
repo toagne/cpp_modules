@@ -6,12 +6,13 @@
 /*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:25:38 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/21 19:28:05 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:35:46 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed() : _val(0) {
 	std::cout << "Default constructor called" << std::endl;
