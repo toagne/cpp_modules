@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:25:38 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/21 19:35:46 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/22 11:53:38 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int Fixed::toInt( void ) const {
 }
 
 float Fixed::toFloat( void ) const {
-	return ((float)_val / (1 << _n_of_fract_bits));	
+	return ((float)_val / (1 << _n_of_fract_bits));
 }
 
 std::ostream & operator<<(std::ostream & ofs, Fixed const & i) {
