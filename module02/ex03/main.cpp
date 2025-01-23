@@ -6,94 +6,41 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:21:35 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/22 11:49:04 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:44:12 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+#include "Point.hpp"
+
+void check_point(float x1, float y1, float x2, float y2, float x3, float y3, float px, float py)
+{
+	Point a(x1, y1);
+	Point b(x2, y2);
+	Point c(x3, y3);
+
+	Point point(px, py);
+	
+	std::cout << std::endl << "Triangle vertices: a(" << a.getX() << "; " << a.getY() << ") "
+									 "b(" << b.getX() << "; " << b.getY() << ") "
+									 "c(" << c.getX() << "; " << c.getY() << ")" << std::endl;
+	std::cout << "Point to check (" << point.getX() << "; " << point.getY() << ")" << std::endl;
+
+	if (bsp(a, b, c, point) == true)
+		std::cout << "The point (" << point.getX() << "; " << point.getY() << ") is inside the triangle" << std::endl;
+	else
+		std::cout << "The point (" << point.getX() << "; " << point.getY() << ") is NOT inside the triangle" << std::endl << std::endl;
+		
+}
 
 int main( void )
 {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << b << std::endl;
-	
-	std::cout << Fixed::max( a, b ) << std::endl;
-
-	std::cout << std::endl;
-
-	Fixed x(20);
-	Fixed y(10);
-	Fixed z;
-
-	std::cout << "x	" << x << std::endl;
-	std::cout << "y	" << y << std::endl << std::endl;
-
-	z = x + y;
-	std::cout << "+	" << z << std::endl;
-
-	z = x - y;
-	std::cout << "-	" << z << std::endl;
-
-	z = x * y;
-	std::cout << "*	" << z << std::endl;
-
-	z = x / y;
-	std::cout << "/	" << z << std::endl << std::endl;
-
-// ***************************************************
-
-	bool q = x > y;
-	std::cout << ">	" << q << std::endl;
-
-	q = x < y;
-	std::cout << "<	" << q << std::endl;
-
-	q = x >= y;
-	std::cout << ">=	" << q << std::endl;
-
-	q = x <= y;
-	std::cout << "<=	" << q << std::endl;
-
-	q = x == y;
-	std::cout << "==	" << q << std::endl;
-
-	q = x != y;
-	std::cout << "!=	" << q << std::endl << std::endl;
-
-// **************************************************
-
-	std::cout << "x	" << x << std::endl;
-	++x;
-	std::cout << "pre++	" << x << std::endl;
-	--x;
-	std::cout << "pre--	" << x << std::endl;
-
-	std::cout << "y	" << y << std::endl;
-	y++;
-	std::cout << "++post	" << y << std::endl;
-	y--;
-	std::cout << "--post	" << y << std::endl << std::endl;
-
-// **************************************************
-
-	std::cout << "min x, y	" << Fixed::min(x, y) << std::endl;
-
-	Fixed const x1(5);
-	Fixed const y1(7);
-	std::cout << "min const x1, const y1	" << Fixed::min(x1, y1) << std::endl;
-
-	std::cout << "max x, y	" << Fixed::max(x, y) << std::endl;
-
-	std::cout << "max const x1, const y1	" << Fixed::max(x1, y1) << std::endl;
+	check_point(1, 1, 5, 1, 3, 5, 2, 2); // inside
+	check_point(1.5, 1.5, 5.7, 1.2, 3.3, 4.8, 3.2, 2.5); // inside
+	check_point(0, 0, 4, 0, 2, 6, 5, 5); // outside
+	check_point(-2, -2, 2, -2, 0, 3, -2, -2); // on a vertex
+	check_point(0, 0, 3.5, 0, 1.5, 4.5, 2.25, 0); // on an edge
 	
 	return 0;
 }

@@ -6,11 +6,11 @@
 #    By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/21 11:19:07 by mpellegr          #+#    #+#              #
-#    Updated: 2025/01/22 12:10:26 by mpellegr         ###   ########.fr        #
+#    Updated: 2025/01/23 11:46:14 by mpellegr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp Fixed.cpp Point.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJ = $(SRC:.cpp=.o)
 NAME = BSP
 CC = c++
