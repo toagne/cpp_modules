@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:17:11 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/23 16:33:33 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/24 09:35:20 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main(void) {
 	}
 	franco.beRepaired(56);
 	franco.attack("fgb");
+	franco.highFivesGuys();
 
 	return 0;
 }

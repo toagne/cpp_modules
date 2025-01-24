@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:51:12 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/23 20:18:01 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/24 09:34:17 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ DiamondTrap & DiamondTrap::operator = (DiamondTrap const & src) {
 DiamondTrap::~DiamondTrap() { std::cout << "Destructor called for DiamondTrap " << this->_name << std::endl; }
 
 void DiamondTrap::whoAmI() {
-	std::cout << "DiamondTrap name: " << _name << ". ClapTrap name: " << ClapTrap::_name << std::endl;
+	if (_hitPoints > 0)
+		std::cout << "DiamondTrap name: " << _name << ". ClapTrap name: " << ClapTrap::_name << std::endl;
+	else
+		std::cout << "DiamondTrap " << _name << " is dead so it can't speak" << std::endl;
+
 }

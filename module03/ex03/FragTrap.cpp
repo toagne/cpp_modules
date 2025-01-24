@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:24:03 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/23 16:29:02 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/24 09:30:10 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,8 @@ FragTrap & FragTrap::operator = (FragTrap const & src) {
 FragTrap::~FragTrap() { std::cout << "Destructor called for FragTrap " << this->_name << std::endl; }
 
 void FragTrap::highFivesGuys(void) {
-	std::cout << "FragTrap " << this->_name << " says: Give me a high five!" << std::endl;
+	if (_hitPoints > 0)
+		std::cout << "FragTrap " << this->_name << " says: Give me a high five!" << std::endl;
+	else
+		std::cout << "FragTrap " << this->_name << " is dead so can't receive an high five" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:08:18 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/23 15:58:52 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/24 09:29:01 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate() {
-	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
+	if (_hitPoints > 0)
+		std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
+	else
+		std::cout << "ScavTrap " << this->_name << " is dead so can't go in Gate keeper mode" << std::endl;
 }
