@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:15:46 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/23 18:56:24 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/27 08:21:48 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ public:
 	FragTrap & operator = (FragTrap const & src);
 	~FragTrap();
 	void highFivesGuys(void);
+protected:
+	static const int staticHitPoints;
+	static const int staticEnergyPoints;
+	static const int staticAttackDamage;
 };
 
 #endif

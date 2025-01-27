@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:51:12 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/24 09:34:17 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/27 08:33:06 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 #include <iostream>
 
 DiamondTrap::DiamondTrap() : ClapTrap("unknown_clap_name"), _name("unknown") {
-	_hitPoints = FragTrap::_hitPoints;
-	_energyPoints = ScavTrap::_energyPoints;
-	_attackDamage = FragTrap::_attackDamage;
+	_hitPoints = FragTrap::staticHitPoints;
+	_energyPoints = ScavTrap::staticEnergyPoints;
+	_attackDamage = FragTrap::staticAttackDamage;
 	std::cout << "Default constructor called for DiamondTrap " << this->_name << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) :  ClapTrap(name + "_clap_name"), _name(name) {
-	_hitPoints = FragTrap::_hitPoints;
-	_energyPoints = ScavTrap::_energyPoints;
-	_attackDamage = FragTrap::_attackDamage;
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _name(name) {
+	_hitPoints = FragTrap::staticHitPoints;
+	_energyPoints = ScavTrap::staticEnergyPoints;
+	_attackDamage = FragTrap::staticAttackDamage;
 	std::cout << "Parametrized constructor called for DiamondTrap " << this->_name << std::endl;
-
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const & src) { std::cout << "Copy consructor called for DiamondTrap" << std::endl; *this = src; }

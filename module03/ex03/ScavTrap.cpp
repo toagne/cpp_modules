@@ -6,14 +6,21 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:08:18 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/24 09:29:06 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/27 08:26:37 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap() : ClapTrap("unknown", 100, 50, 20) {
+const int ScavTrap::staticHitPoints = 100;
+const int ScavTrap::staticEnergyPoints = 50;
+const int ScavTrap::staticAttackDamage = 20 ;
+
+ScavTrap::ScavTrap() : ClapTrap("unknown",
+					   ScavTrap::staticHitPoints,
+					   ScavTrap::staticEnergyPoints,
+					   ScavTrap::staticAttackDamage) {
 	std::cout << "Default constructor called for ScavTrap " << this->_name << std::endl;
 }
 
