@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:57:41 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/24 14:28:18 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:20:26 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int main()
 
 	const Animal *b = new Animal();
 	std::cout << b->getType() << " " << std::endl;
+
+	delete meta;
+	delete j;
+	delete i;
+	delete a;
+	delete b;
 	
 	return 0;
 }

@@ -31,5 +31,5 @@ WrongAnimal::~WrongAnimal() { std::cout << "Default destructor called for WrongA
 std::string WrongAnimal::getType() const { return _type; }
 
 void WrongAnimal::makeSound() const {
-		std::cout << "......." << std::endl;
+		std::cout << "Generic animal sound" << std::endl;
 }

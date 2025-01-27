@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:53:08 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/24 14:16:51 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:12:54 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Cat & operator = (Cat const & src);
 	~Cat();
 
-	void makeSound() const;
+	void makeSound() const override;
 };
 
 #endif

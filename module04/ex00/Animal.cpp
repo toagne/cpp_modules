@@ -13,7 +13,7 @@
 #include "Animal.hpp"
 #include <iostream>
 
-Animal::Animal() { std::cout << "Default constructor called for Animal" << std::endl; }
+Animal::Animal() : _type("Generic animal") { std::cout << "Default constructor called for Animal" << std::endl; }
 
 Animal::Animal(std::string type) : _type(type) { std::cout << "Parametrized constructor called for Animal" << std::endl; }
 
@@ -31,5 +31,5 @@ Animal::~Animal() { std::cout << "Default destructor called for Animal" << std::
 std::string Animal::getType() const { return _type; }
 
 void Animal::makeSound() const {
-		std::cout << "......." << std::endl;
+		std::cout << "Generic animal sound" << std::endl;
 }
