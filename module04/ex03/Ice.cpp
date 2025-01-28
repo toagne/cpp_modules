@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:03:11 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/28 09:51:27 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:27:56 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 #include "ICharacter.hpp"
-#include "iostream"
+#include <iostream>
 
 Ice::Ice () : AMateria("ice") {}
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 14:04:01 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/28 09:52:52 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:27:09 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Cure::Cure () : AMateria("cure") {}
 
-Cure::Cure (Cure const & src) :AMateria(src._type) {} // to check
+Cure::Cure (Cure const & src) : AMateria(src._type) {} // to check
 
 Cure & Cure::operator = (Cure const & src) { // to check
 	if (this != &src)

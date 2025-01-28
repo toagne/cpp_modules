@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 09:04:04 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/28 12:18:12 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:16:56 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,15 @@ int main()
 	f->equip(g);
 
 	ICharacter *h = new Character("enido");
+	g = e->createMateria("aaa");
+	h->equip(g);
+	h->use(0, *f);
+	
 	for (int i = 0; i < 4; i++)
 		f->use(i, *h);
 	std::cout << std::endl;
 	f->unequip(2);
+	f->unequip(10);
 	for (int i = 0; i < 4; i++)
 		f->use(i, *h);
 
