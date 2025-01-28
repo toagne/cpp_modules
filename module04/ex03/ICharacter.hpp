@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 13:58:38 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/28 09:27:08 by mpellegr         ###   ########.fr       */
+/*   Created: 2025/01/27 14:14:02 by mpellegr          #+#    #+#             */
+/*   Updated: 2025/01/28 06:21:50 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
 # include <string>
-# include "AMateria.hpp"
 
-class Cure : public AMateria
+class AMateria;
+
+class ICharacter
 {
-private:
-	std::string _type;
 public:
-	Cure();
-	Cure(Cure const & src);
-	Cure & operator = (Cure const & src);
-	~Cure();
-
-	AMateria* clone() const override;
-	void use(ICharacter& target) override;
+	virtual ~ICharacter() {}
+	virtual std::string const & getName() const = 0;
+	virtual void equip(AMateria* m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif
