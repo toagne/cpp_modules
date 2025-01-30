@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:59:53 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/29 15:03:14 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/30 08:49:19 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,47 +16,36 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main() {
-	Bureaucrat a("AaA", 127);
-	Bureaucrat b("BbB", 45);
-	Bureaucrat c("CcC", 3);
-	ShrubberyCreationForm scf("home");
-	RobotomyRequestForm rrf("hello");
-	PresidentialPardonForm ppf("ppf");
-
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << c << std::endl;
-	std::cout << std::endl;
-
-	std::cout << scf << std::endl;
-	std::cout << rrf << std::endl;
-	std::cout << ppf << std::endl;
-	std::cout << std::endl;
-
-	a.signForm(scf);
-	a.executeForm(scf);
-	b.signForm(rrf);
-	b.executeForm(rrf);
-	c.signForm(ppf);
-	c.executeForm(ppf);
+	Intern i;
+	AForm *f;
+	Bureaucrat b("Berto", 3);
+	std::cout << b << std::endl << std::endl;
+	
+	f = i.makeForm("robotomy", "gino");
+	std::cout << *f << std::endl;
+	b.signForm(*f);
+	b.executeForm(*f);
+	delete f;
 	std::cout << std::endl;
 	
-	a.executeForm(rrf);
-	a.executeForm(ppf);
-	std::cout << std::endl;
-	
-	b.executeForm(scf);
-	b.executeForm(ppf);
-	std::cout << std::endl;
-	
-	c.executeForm(scf);
-	c.executeForm(rrf);
+	f = i.makeForm("PRESIDENTIAL request", "gino");
+	std::cout << *f << std::endl;
+	b.signForm(*f);
+	b.executeForm(*f);
+	delete f;
 	std::cout << std::endl;
 
-	PresidentialPardonForm ppf_1("ppf_1");
-	c.executeForm(ppf_1);
+	f = i.makeForm("ShRuBbEry form", "gino");
+	std::cout << *f << std::endl;
+	b.signForm(*f);
+	b.executeForm(*f);
+	delete f;
+	std::cout << std::endl;
+	
+	f = i.makeForm("not existing", "gino");
 
-	return 0;
+	delete f;
 }

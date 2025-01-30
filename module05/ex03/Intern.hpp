@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:09:58 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/29 16:37:53 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/30 08:47:06 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 
 class Intern
 {
+private:
+	static AForm* createShrubbery(const std::string& target);
+	static AForm* createRobotomy(const std::string& target);
+	static AForm* createPresidential(const std::string& target);
 public:
 	Intern();
 	Intern(Intern const & src);

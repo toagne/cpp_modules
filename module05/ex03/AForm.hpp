@@ -30,7 +30,7 @@ public:
 	AForm(std::string name, int gradeForSigning, int gradeForExecuting);
 	AForm(AForm const & src);
 	AForm & operator = (AForm const & src);
-	~AForm();
+	virtual ~AForm();
 
 	class GradeTooHighException : public std::exception
 	{
