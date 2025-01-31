@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:20:49 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/30 15:20:02 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/01/31 10:04:27 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int main(int ac, char **av) {
 		std::cout << "Error, correct usage is: ./converter <str>" << std::endl;
 		return 1;
 	}
-	std::string str = av[1];
-	ScalarConverter::convert(str);
-
+	try {
+		ScalarConverter::convert(av[1]);
+	} catch (std::exception & e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 	return 0;
 }
