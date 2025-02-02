@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+         #
+#    By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/21 11:19:07 by mpellegr          #+#    #+#              #
-#    Updated: 2025/01/31 16:20:24 by mpellegr         ###   ########.fr        #
+#    Updated: 2025/02/02 13:52:42 by mpellegr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.cpp 
+SRC = main.cpp Base.cpp
 OBJ = $(SRC:.cpp=.o)
 NAME = identifier
 CC = c++
