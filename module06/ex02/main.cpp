@@ -21,6 +21,7 @@ int main(void) {
 	Base *test = generate();
 	identify(test);
 	identify(*test);
+	delete test;
 	std::cout << "\n";
 
 	std::cout << "identify A" << std::endl;
