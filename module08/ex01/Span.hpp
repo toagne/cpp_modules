@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:42:20 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/05 16:38:17 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:36:58 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 	template <typename Iterator>
 	void addNumber(Iterator begin, Iterator end) {
 		if (_vector.size() + std::distance(begin, end) > _N) {
-			throw std::overflow_error("maximum size reached, you can't add more values");
+			throw std::overflow_error("addNumber with range - maximum size reached, you can't add more values");
 		}
 		_vector.insert(_vector.end(), begin, end);
 	}

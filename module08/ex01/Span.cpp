@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:51:33 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/05 16:36:56 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:36:48 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ Span & Span::operator = (Span const & src) {
 Span::~Span() {}
 
 void Span::addNumber(int n) {
-	if (_vector.size() > _N)
-		throw std::overflow_error("maximum size reached, you can't add more values");
-	_vector.push_back(n);
+	if (_vector.size() >= _N)
+		throw std::overflow_error("simple addNumber - maximum size reached, you can't add more values");
+	_vector.push_back(n);	
 }
 
 int Span::shortestSpan() {
@@ -47,7 +47,7 @@ int Span::shortestSpan() {
 
 int Span::longestSpan() {
 	if (_vector.size() < 2)
-		throw std::logic_error("not enough values to calclulate shortest span");
+		throw std::logic_error("not enough values to calclulate longest span");
 	std::vector<int> copy = _vector;
 	std::sort(copy.begin(), copy.end());
 	return copy[copy.size() - 1] - copy[0];
