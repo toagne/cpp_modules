@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:11:35 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/01/31 14:56:43 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/05 09:10:13 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,7 @@ int ScalarConverter::isFloat(std::string const &input) {
 				return 0;
 		}
 	}
-	if (input.back() != 'f' || !std::isdigit(static_cast<unsigned char>(input[0]))
-		|| !std::isdigit(static_cast<unsigned char>(input[input.length() - 2])))
+	if (input.back() != 'f' || !std::isdigit(static_cast<unsigned char>(input[input.length() - 2])))
 		return 0;
 	return 4;
 }
