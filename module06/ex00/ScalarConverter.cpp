@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:11:35 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/05 09:10:13 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/06 13:03:50 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 #include <limits>
 #include <cmath>
 #include <iomanip>
+#include <cstdint>
 
 ScalarConverter::ScalarConverter() {}
-ScalarConverter::ScalarConverter(ScalarConverter const & src) { (void)src; }
-ScalarConverter & ScalarConverter::operator = (ScalarConverter const & src) { (void)src; return *this; }
+ScalarConverter::ScalarConverter(ScalarConverter const & src) { static_cast<void>(src); }
+ScalarConverter & ScalarConverter::operator = (ScalarConverter const & src) { static_cast<void>(src); return *this; }
 ScalarConverter::~ScalarConverter() {}
 
 int ScalarConverter::isChar(std::string const &input) {
@@ -117,13 +118,16 @@ void ScalarConverter::convertChar(std::string const &input) {
 }
 
 void ScalarConverter::convertInt(std::string const &input) {
-	int i = std::stoi(input);
+	long i = std::stol(input);
 
 	if (i < std::numeric_limits<char>::min() || i > std::numeric_limits<char>::max())
 		std::cout << "char: impossible" << std::endl;
 	else
 		ScalarConverter::printChar(static_cast<char>(i));
-	std::cout << "int: " << i << std::endl;
+	if (i < std::numeric_limits<int>::min() || i > std::numeric_limits<int>::max())
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << i << std::endl;
 	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(i) << std::endl;
@@ -137,21 +141,28 @@ void ScalarConverter::convertDouble(std::string const &input) {
 		std::cout << "char: impossible" << std::endl;
 	else
 		ScalarConverter::printChar(static_cast<char>(d));
-	std::cout << "int: " << static_cast<int>(d) << std::endl;
+	if (d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max())
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(d) << std::endl;
 	std::cout << std::fixed << std::setprecision(precision);
 	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double: " << d << std::endl;
 }
 
 void ScalarConverter::convertFloat(std::string const &input) {
-	float f = std::stof(input);
+	double d = std::stod(input);
 	int precision = ScalarConverter::countDecimalPlaces(input);
 
-	if (f < std::numeric_limits<char>::min() || f > std::numeric_limits<char>::max())
+	if (d < std::numeric_limits<char>::min() || d > std::numeric_limits<char>::max())
 		std::cout << "char: impossible" << std::endl;
 	else
-		ScalarConverter::printChar(static_cast<char>(f));
-	std::cout << "int: " << static_cast<int>(f) << std::endl;
+		ScalarConverter::printChar(static_cast<char>(d));
+	if (d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max())
+			std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(d) << std::endl;
+	float f = static_cast<float>(d);
 	std::cout << std::fixed << std::setprecision(precision);
 	std::cout << "float: " << f << "f" << std::endl;
 	std::cout << "double: " << static_cast<float>(f) << std::endl;
