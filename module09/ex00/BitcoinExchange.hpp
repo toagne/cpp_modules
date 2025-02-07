@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 07:57:54 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/06 15:07:59 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/07 07:31:43 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <sstream>
 #include <regex>
 #include <iomanip>
+#include <ctime>
 
 class BitcoinExchange
 {
@@ -33,5 +34,6 @@ public:
 	void performExchnge(std::string path);
 	void checkInputFileLine(std::string line);
 	std::string trimSpaces(std::string str);
-	void checkInputFileValidDateAndValue(std::string date, float value);
+	void checkInputFileValidDate(std::string date);
+	void checkInputFileValidValue(float *value, std::string stringFloatValue);
 };

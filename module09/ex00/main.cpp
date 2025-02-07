@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 07:57:51 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/06 15:50:26 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/07 08:13:53 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int ac, char **av) {
 		BitcoinExchange a;
 		a.performExchnge(av[1]);
 	} catch (std::exception & e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << "Error: " << e.what() << std::endl;
 	}
 	return 0;
 }
