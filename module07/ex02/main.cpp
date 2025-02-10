@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:22:03 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/05 13:11:39 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/10 09:53:26 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,6 @@ int main(void) {
 		numbers[i] = value;
 		mirror[i] = value;
 	}
-	//SCOPE
-	{
-		Array<int> tmp = numbers;
-		Array<int> test(tmp);
-	}
-
 	for (int i = 0; i < MAX_VAL; i++)
 	{
 		if (mirror[i] != numbers[i])
@@ -100,11 +94,7 @@ int main(void) {
 	{
 		std::cerr << e.what() << '\n';
 	}
+	delete [] mirror;
 
-	for (int i = 0; i < MAX_VAL; i++)
-	{
-		numbers[i] = rand();
-	}
-	delete [] mirror;//
 	return 0;
 }
