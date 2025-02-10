@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 09:08:55 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/07 16:20:31 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:06:52 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,31 @@
 
 RPN::RPN() {}
 
-RPN::~RPN() {}
+RPN::RPN(RPN const & src) { *this = src; }
 
-void RPN::checkArgsErr(std::string arg, int *n_of_n) {
-	try{
-		if (*n_of_n >= 10)
-			throw std::runtime_error("input has more than 10 numbers");
-		std::stoi(arg);
-		(*n_of_n)++;
-	} catch (std::invalid_argument & e) {
-		if (arg != "+" && arg != "-" && arg != "/" && arg != "*")
-			throw std::runtime_error("invalid argument: " + arg);
-	} catch (std::out_of_range & e) {
-		throw std::runtime_error("number is out of range: " + arg);
-	}
+RPN & RPN::operator = (RPN const & src) {
+	if (this != &src)
+		_args = src._args;
+	return *this;
 }
 
-void RPN::parseArguments(int ac, char **av) {
+RPN::~RPN() {}
+
+void RPN::parseArguments(char **av) {
 	int n_of_n = 0;
-	if (ac == 2) {
-		std::istringstream argsStream(av[1]);
-		std::string arg;
-		while (argsStream >> arg)
-			checkArgsErr(arg, &n_of_n);
-	}
-	else {
-		for (int i = 1; av[i]; i++) {
-			std::string arg(av[i]);
-			checkArgsErr(arg, &n_of_n);
+	std::istringstream argsStream(av[1]);
+	std::string arg;
+	while (argsStream >> arg) {
+		try {
+			std::stoi(arg);
+			n_of_n++;
+			if (n_of_n > 10)
+				throw std::runtime_error("input has more than 10 numbers");
+		} catch (std::invalid_argument &) {
+			if (arg != "+" && arg != "-" && arg != "/" && arg != "*")
+				throw std::runtime_error("invalid argument: " + arg);
+		} catch (std::out_of_range &) {
+			throw std::runtime_error("number is out of range: " + arg);
 		}
 	}
 }
@@ -49,10 +46,10 @@ void RPN::parseArguments(int ac, char **av) {
 void RPN::processOperator(std::string op) {
 	if (_args.size() < 2)
 		throw std::runtime_error("too few numbers to perform this operation: " + op);
-	auto it1 = std::prev(_args.end());
-	auto it2 = std::prev(_args.end(), 2);
-	int n1 = stoi(*it1);
-	int n2 = stoi(*it2);
+	int n1 = _args.back();
+	_args.pop_back();
+	int n2 = _args.back();
+	_args.pop_back();
 	int res = 0;
 	switch (op[0])
 	{
@@ -73,39 +70,30 @@ void RPN::processOperator(std::string op) {
 	default:
 		throw std::runtime_error("unknown operator " + op);
 	}
-	_args.pop_back();
-	_args.pop_back();
-	_args.push_back(std::to_string(res));
+	_args.push_back(res);
 }
 
-void RPN::execCalc(int ac, char **av) {
-	if (ac == 2) {
-		std::istringstream argsStream(av[1]);
-		std::string arg;
-		while (argsStream >> arg) {
-			try {
-				std::stoi(arg);
-				// std::cout << arg << " ";
-				_args.push_back(arg);
-			} catch (std::invalid_argument & e) {
-				processOperator(arg);
-			}
+void RPN::execute(char **av) {
+	parseArguments(av);
+	std::istringstream argsStream(av[1]);
+	std::string arg;
+	while (argsStream >> arg) {
+		try {
+			_args.push_back(std::stoi(arg));
+		} catch (std::invalid_argument & e) {
+			processOperator(arg);
 		}
-		for (auto i = _args.begin(); i != _args.end(); i++)
-			std::cout << *i << std::endl;
 	}
-	// else {
-	// 	for (int i = 1; av[i]; i++) {
-	// 		std::string arg(av[i]);
-	// 	}
-	// }
-}
-
-void RPN::execute(int ac, char **av) {
-	try {
-		parseArguments(ac, av);
-		execCalc(ac, av);
-	} catch (std::exception & e) {
-		std::cout << "Error: " << e.what() << std::endl;
+	if (_args.size() != 1) {
+		std::cout << "Final stack: [";
+		for (auto i = _args.begin(); i != _args.end(); i++) {
+			if (i == std::prev(_args.end()))
+				std::cout << *i;
+			else
+				std::cout << *i << ", ";
+		}
+		std::cout << "]" <<std::endl;
+		throw std::runtime_error("invalid RPN expression: too many or too few operators");
 	}
+	std::cout << _args.back() << std::endl;
 }
