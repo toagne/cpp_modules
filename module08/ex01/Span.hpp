@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:42:20 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/05 19:36:58 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/11 08:57:12 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <limits>
 
 class Span
 {

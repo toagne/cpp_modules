@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpellegr <mpellegr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 14:51:33 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/05 19:36:48 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/11 09:01:08 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ int Span::shortestSpan() {
 		throw std::logic_error("not enough values to calclulate shortest span");
 	std::vector<int> copy = _vector;
 	std::sort(copy.begin(), copy.end());
-	int minSpan = copy[1] - copy[0];
+	int minSpan = std::numeric_limits<int>::max();
 	for (size_t i = 1; i < copy.size() - 1; i++)
-		minSpan = std::min(minSpan, copy[i + 1] - copy[i]);
+		minSpan = std::min(minSpan, copy[i] - copy[i - 1]);
 	return minSpan;
 }
 
 int Span::longestSpan() {
 	if (_vector.size() < 2)
 		throw std::logic_error("not enough values to calclulate longest span");
-	std::vector<int> copy = _vector;
-	std::sort(copy.begin(), copy.end());
-	return copy[copy.size() - 1] - copy[0];
+	int minVal = *std::min_element(_vector.begin(), _vector.end());
+	int maxVal = *std::max_element(_vector.begin(), _vector.end());
+	return maxVal - minVal;
 }
