@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 09:09:21 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/10 10:42:16 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:05:49 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <list>
 #include <sstream>
+#include <limits>
 
 class RPN
 {

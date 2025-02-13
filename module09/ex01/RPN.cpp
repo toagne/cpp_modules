@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 09:08:55 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/10 11:06:52 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:13:06 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,13 @@ RPN & RPN::operator = (RPN const & src) {
 RPN::~RPN() {}
 
 void RPN::parseArguments(char **av) {
-	int n_of_n = 0;
 	std::istringstream argsStream(av[1]);
 	std::string arg;
 	while (argsStream >> arg) {
 		try {
-			std::stoi(arg);
-			n_of_n++;
-			if (n_of_n > 10)
-				throw std::runtime_error("input has more than 10 numbers");
+			// std::stoi(arg);
+			if (std::stoi(arg) > 10)
+				throw std::runtime_error(arg + " is bigger than 10, arguments must be between 0 and 9");
 		} catch (std::invalid_argument &) {
 			if (arg != "+" && arg != "-" && arg != "/" && arg != "*")
 				throw std::runtime_error("invalid argument: " + arg);
@@ -50,17 +48,17 @@ void RPN::processOperator(std::string op) {
 	_args.pop_back();
 	int n2 = _args.back();
 	_args.pop_back();
-	int res = 0;
+	long long res = 0;
 	switch (op[0])
 	{
 	case '+':
-		res = n2 + n1;
+		res = static_cast<long>(n2) + n1;
 		break;
 	case '-':
-		res = n2 - n1;
+		res = static_cast<long>(n2) - n1;
 		break;
 	case '*':
-		res = n2 * n1;
+		res = static_cast<long>(n2) * n1;
 		break;
 	case '/':
 		if (n1 == 0)
@@ -70,6 +68,8 @@ void RPN::processOperator(std::string op) {
 	default:
 		throw std::runtime_error("unknown operator " + op);
 	}
+	if (res > std::numeric_limits<int>::max())
+		throw std::runtime_error("the result of the operation is bigger than INT_MAX");
 	_args.push_back(res);
 }
 
