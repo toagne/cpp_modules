@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:15:45 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/12 16:07:54 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/13 07:47:06 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,20 @@
 
 PmergeMe::PmergeMe() {}
 
+PmergeMe::PmergeMe(PmergeMe const &src) : _vector(src._vector), _deque(src._deque) {}
+
+PmergeMe & PmergeMe::operator=(PmergeMe const &src) {
+	if (this != &src) {
+		_vector = src._vector;
+		_deque = src._deque;
+	}
+	return *this;
+}
+
 PmergeMe::~PmergeMe() {}
+
+void PmergeMe::sortVector() { sort(_vector); }
+void PmergeMe::sortDeque() { sort(_deque); }
 
 void PmergeMe::parseArgs(char **av) {
 	std::set<int> uniqueArgs;
@@ -70,7 +83,7 @@ void PmergeMe::sort(T &container) {
 		biggerNumbers.push_back(container[i]);
 	}
 	if (container.size() % 2 != 0)
-		biggerNumbers.push_back(container[container.size() - 1]);
+		biggerNumbers.push_back(container.back());
 	for (size_t i = 1; i < biggerNumbers.size(); i++) {
 		int temp = biggerNumbers[i];
 		ssize_t j = i - 1;
@@ -89,29 +102,37 @@ void PmergeMe::sort(T &container) {
 
 void PmergeMe::execute(char **av) {
 	// parsing
+	auto startP = std::chrono::steady_clock::now();
 	parseArgs(av);
+	auto endP = std::chrono::steady_clock::now();
+	
 	// printing unsorted sequence
 	std::cout << "Before: ";
 	for (size_t i = 0; i < _vector.size(); i++)
 		std::cout << _vector[i] << " ";
 	std::cout << "\n";
+	
 	// sorting vector container
-	auto start = std::chrono::steady_clock::now();
-	sort(_vector);
-	auto end = std::chrono::steady_clock::now();
+	auto startV = std::chrono::steady_clock::now();
+	sortVector();
+	auto endV = std::chrono::steady_clock::now();
+	
 	// printing sorted sequence
 	std::cout << "After : ";
 	for (size_t i = 0; i < _vector.size(); i++)
 		std::cout << _vector[i] << " ";
 	std::cout << "\n";
+	
 	// printing time for vector
 	std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector : "
-			  << std::chrono::duration<double, std::milli>(end - start).count() << " ms" << std::endl;
+			  << std::chrono::duration<double, std::milli>(endP - startP + endV - startV).count() << " ms" << std::endl;
+	
 	// sorting deque container
 	auto startD = std::chrono::steady_clock::now();
-	sort(_deque);
+	sortDeque();
 	auto endD = std::chrono::steady_clock::now();
+	
 	// printing time for deque
 	std::cout << "Time to process a range of " << _deque.size() << " elements with std::deque  : "
-			<< std::chrono::duration<double, std::milli>(endD - startD).count() << " ms" << std::endl;
+			<< std::chrono::duration<double, std::milli>(endP - startP + endD - startD).count() << " ms" << std::endl;
 }

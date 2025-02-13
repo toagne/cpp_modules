@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 11:15:40 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/12 15:25:35 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/13 07:39:41 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ private:
 	std::deque<int> _deque;
 public:
 	PmergeMe();
+	PmergeMe(PmergeMe const &src);
+	PmergeMe & operator = (PmergeMe const &src);
 	~PmergeMe();
 	
 	void execute(char **av);
@@ -38,4 +40,7 @@ public:
 	
 	template <typename T>
 	int binaryInsertion(T &container, int value);
+
+	void sortVector();
+	void sortDeque();
 };
