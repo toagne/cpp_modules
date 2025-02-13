@@ -6,7 +6,7 @@
 /*   By: mpellegr <mpellegr@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 09:08:55 by mpellegr          #+#    #+#             */
-/*   Updated: 2025/02/13 19:13:06 by mpellegr         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:19:14 by mpellegr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ void RPN::parseArguments(char **av) {
 	std::string arg;
 	while (argsStream >> arg) {
 		try {
-			// std::stoi(arg);
-			if (std::stoi(arg) > 10)
+			size_t pos;
+			if (std::stoi(arg, &pos) > 10)
 				throw std::runtime_error(arg + " is bigger than 10, arguments must be between 0 and 9");
+			if (pos != arg.size())
+				throw std::runtime_error("invalid argument: " + arg);
 		} catch (std::invalid_argument &) {
 			if (arg != "+" && arg != "-" && arg != "/" && arg != "*")
 				throw std::runtime_error("invalid argument: " + arg);
